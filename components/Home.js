@@ -1,15 +1,18 @@
 import React, { useState } from "react";
-import { View, Text, ScrollView, StyleSheet, Image, Button, Pressable, } from "react-native";
+import { View, Text, ScrollView, StyleSheet, Image, Button, Pressable} from "react-native";
 import Footer from "./Footer";
+
 import img1 from "../assets/adaptive-icon.png"
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon3 from 'react-native-vector-icons/FontAwesome5';
 
 import Icon1 from 'react-native-vector-icons/AntDesign';
 import Icon2 from 'react-native-vector-icons/Entypo';
-const Home = () => {
+const Home = ({navigation}) => {
+   
     const [like, setLike] = useState(0);
     return (
+        
         <ScrollView style={Styles.main}>
             <View style={Styles.b1}>
                 <View style={Styles.innerbtn}>
@@ -69,7 +72,7 @@ const Home = () => {
                 </View>
 
                 <View style={Styles.innerbtn}>
-                    <Pressable>
+                    <Pressable onPress={()=>navigation.navigate('Comment')}>
                         <Icon
                             name="comments"
                             size={28}
@@ -102,8 +105,9 @@ const Home = () => {
             <View>
 
             </View>
-            <Footer />
+            
         </ScrollView>
+     
     );
 }
 const Styles = StyleSheet.create({
@@ -117,8 +121,8 @@ const Styles = StyleSheet.create({
         margin: 3,
     },
     b2: {
-        marginTop: 20,
-        height: 'auto',
+        marginTop: 10,
+        height: undefined,
         width: '100%',
         backgroundColor: 'blue',
         aspectRatio: 1,

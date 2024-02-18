@@ -1,5 +1,6 @@
 import React from "react";
-import { NavigationContainer } from '@react-navigation/native';
+
+// import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/AntDesign';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
@@ -10,12 +11,15 @@ import Category from "./Category";
 import Reel from "./Reel";
 import Account from "./Account";
 
+
 const Navigation =()=>{
     const Tab = createBottomTabNavigator();
+  
     return(
-        
-        <NavigationContainer>
-        <Tab.Navigator>
+       
+        <Tab.Navigator screenOptions={{
+          headerShown: false,
+        }}>
           <Tab.Screen name="Shopping"  component={Home}
           options={{
             tabBarIcon: ({ color, size }) => (
@@ -40,10 +44,9 @@ const Navigation =()=>{
               <Icon2 name="account" color={color} size={size} />
             ),
           }}  />
-    
           
         </Tab.Navigator>
-        </NavigationContainer>
+     
        
     );
 }
